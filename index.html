@@ -76,16 +76,30 @@
             color: rgb(87, 87, 87);
             border: 1px solid aqua;
         }
+        .voltar{
+            height: 10%;
+            width: 20%;
+            border-radius: 20px;
+        }
+        .btnV{
+            display: flex;
+            flex-direction: row-reverse;
+        }
     </style>
 </head>
 <body style="background-color: white;">
-    <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a></div> </div>
-    <div class="selec" id="bbc">
+    <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a> <div class="btnV"><button class="voltar">Voltar</button></div></div> </div>
+    <div class="selec" id="selec">
+
         <div class="botoes">
             <button class="botao" onclick="Palabra()">Palavra da Sorte &#2660</button>
             <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
         </div>
     </div>
+    <div class='boxes' id="boxes">
+
+    </div>
+
      <div class="footer" >
         <input type="image" class="anuncio" id="a" src="https://cdn01.x-plarium.com/browser/content/forum/common/header-arts/raid-header.jpg" onclick="anuncio()">
         <br> 
@@ -104,8 +118,9 @@
         }
 
         function Palabra(){
-            bbc = document.getElementById('bbc').style;
-            bbc.display = "none"
+            selec = document.getElementById('selec').style;
+            selec.display = "none"
+            
         }
 
 
