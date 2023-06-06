@@ -80,7 +80,7 @@
 </head>
 <body style="background-color: white;">
     <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a></div> </div>
-    <div class="selec">
+    <div class="selec" id="bbc">
         <div class="botoes">
             <button class="botao" onclick="Palabra()">Palavra da Sorte &#2660</button>
             <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
@@ -102,11 +102,10 @@
            var ad = Math.floor(Math.random() * 3);
            anuncio.src = imgs[ad];   
         }
-        function anuncio(){
-            window.location='https://plarium.com/pt/game/raid-shadow-legends';
-        }
+
         function Palabra(){
-            window.location = 'abs.html'
+            bbc = document.getElementById('bbc').style;
+            bbc = 'display: none'
         }
 
 
