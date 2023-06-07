@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorte Sortuda</title>
+    <title>Sorte</title>
     <style>
         body{
             margin: 0px;
@@ -79,7 +79,7 @@
         }
         .voltar{
             display: none;            
-            margin-right: 30%;
+            margin-right: 30px;
             height: 50%;
             width: 70%;
             border-radius: 20px;
@@ -87,6 +87,9 @@
         .btnV{
             display: flex;
             
+        }
+        .btns{
+            display: none;
         }
     </style>
 </head>
@@ -99,10 +102,13 @@
                 <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
             </div>
         </div>
+        <div class="boxes" id="boxes">
+            <div class="btns" id='btns'>
+
+            </div>
+        </div>
     </div>
-    <div class='boxes' id="boxes">
-        
-    </div>
+
 
      <div class="footer" >
         <input type="image" class="anuncio" id="a" src="https://cdn01.x-plarium.com/browser/content/forum/common/header-arts/raid-header.jpg" onclick="anuncio()">
@@ -113,6 +119,7 @@
    
    
    <script>
+        var feito = 0
         window.onload = escAnun
         function escAnun(){
            var anuncio = document.getElementById('a');
@@ -122,15 +129,35 @@
         }
 
         function Palabra(){
+            try{
             selec = document.getElementById('selec').style;
             volta = document.getElementById('voltar').style;
-            selec.display = "none"
-            volta.display = "block"
+            btns = document.getElementById('btns').style;
+            btns.display = "block"
+            selec.display = "none";
+            volta.display = "block";
+            let i = 0;
             
+            
+            while(i <= 8 && feito == 0){
+                let btn = document.createElement("button");
+                btn.innerHTML = 'a';
+                document.getElementById('btns').appendChild(btn);
+                i++;
+                
+            }
+            feito = 1;
+        }
+        catch(err){
+            console.log(err);
+            window.alert(err);
+        }
         }
         function voltar(){
-            selec.display = "block"
-            volta.display = "none"
+            btns.display = "none";
+            selec.display = "block";
+            volta.display = "none";
+
             
 
         }
