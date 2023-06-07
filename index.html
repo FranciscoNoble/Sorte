@@ -18,6 +18,7 @@
             width: 100%;
             justify-content: space-between;
             flex-direction: row;
+
         }
         .tit-site
         {
@@ -77,7 +78,8 @@
             border: 1px solid aqua;
         }
         .voltar{
-            padding-right: 10%;
+            display: none;            
+            margin-right: 30%;
             height: 50%;
             width: 70%;
             border-radius: 20px;
@@ -89,7 +91,7 @@
     </style>
 </head>
 <body style="background-color: white;">
-    <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a> </div> <div class="btnV"><button class="voltar">Voltar</button></div> </div>
+    <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
     <div class="selec" id="selec">
 
         <div class="botoes">
@@ -98,7 +100,7 @@
         </div>
     </div>
     <div class='boxes' id="boxes">
-
+        
     </div>
 
      <div class="footer" >
@@ -120,10 +122,17 @@
 
         function Palabra(){
             selec = document.getElementById('selec').style;
+            volta = document.getElementById('voltar').style;
             selec.display = "none"
+            volta.display = "block"
             
         }
+        function voltar(){
+            selec = document.getElementById('selec').style;
+            selec.display = "block"
+            
 
+        }
 
     </script>
 </body>
