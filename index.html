@@ -92,11 +92,12 @@
 </head>
 <body style="background-color: white;">
     <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
-    <div class="selec" id="selec">
-
-        <div class="botoes">
-            <button class="botao" onclick="Palabra()">Palavra da Sorte &#2660</button>
-            <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
+    <div class="selec">
+        <div id="selec">
+            <div class="botoes">
+                <button class="botao" onclick="Palabra()">Palavra da Sorte &#2660</button>
+                <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
+            </div>
         </div>
     </div>
     <div class='boxes' id="boxes">
@@ -128,8 +129,8 @@
             
         }
         function voltar(){
-            selec = document.getElementById('selec').style;
             selec.display = "block"
+            volta.display = "none"
             
 
         }
