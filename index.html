@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg">
     <title>Sorte</title>
     <style>
         body{
             margin: 0px;
             padding: 0px;
+            font-size: 16px;
         }
         .Header{
             display: flex;
             align-items: center;
             height:2cm;
-            background-color: rgb(178, 29, 204);
+            background-color: rgb(4, 70, 24);
             width: 100%;
             justify-content: space-between;
             flex-direction: row;
@@ -22,15 +24,18 @@
         }
         .tit-site
         {
-            align-items: right;
+            display: flex;
+            align-items: center;
             font-size: 45px;
             margin-left: 2%;
            
              
         }
         .tit{
-           
-            color:antiquewhite;
+            margin-right: 10%;
+            font-family:'Roboto',sans-serif;
+            color:#EEEFE1;
+                   
         }
         .anuncio{
             
@@ -50,30 +55,50 @@
             
         }
         .selec{
-            margin-top: 15px;
+            margin-top: 10px;
             width: 100%;
             height: 40%;
-             /* Center vertically and horizontally */
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             flex-direction: row;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
 
         }
-        .botao{
-            margin-top: 10px;
-            margin-bottom: 10px;
-            width: 500px;
-            height: 350px;
-            background-color:antiquewhite;
+        #selec{
+            margin-top: 7%;
+        }
+
+        @media screen and (max-width: 832px){ 
+            .botao{
+                margin: 10px 60px 20px;
+                width: 322px;
+                height: 239px;
+                background-color: #EEEFE1;
+                border-radius: 20px;
+                border-width: 0px;
+                font-size: 27px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+        }
+        @media screen and (min-width: 833px){
+            .botao{
+            margin: 0.4em;
+            width: 35vw;
+            height: 25vw;
+            background-color:#EEEFE1;
             border-radius: 20px;
             border-width: 0px;
-            font-size: 40px;
-            
+            font-size: 3vw;
+            }
+
             
         }
         .botao:hover{
-            background-color: rgb(242, 236, 236);
+            background-color: #e3e4d6;
             color: rgb(87, 87, 87);
             border: 1px solid aqua;
         }
@@ -88,17 +113,51 @@
             display: flex;
             
         }
+        .voltar{
+            border: 0px solid;
+        }
+        .voltar:hover{
+            border: 1px solid;
+            color: crimson;
+        }
         .btns{
             display: none;
         }
+        .icon{
+            margin-right: 5%;
+            height: 1em;
+            width: 1em;
+            }
+
+        .botoes{
+            margin-top: 10px;
+        }
+
+        .btn{
+            width: 33%;
+            height: 110px;
+            font-size: large;
+            border-radius: 10px;
+            margin: 0.12vw;
+            background-color: #EEEFE1;
+            border: 0px;
+        }
+        .btn:hover{
+            background-color: #e3e4d6;
+            color: rgb(87, 87, 87);
+            border: 1px solid aqua;
+        }
+
+
+    
     </style>
 </head>
 <body style="background-color: white;">
-    <div class="Header" id="Header"> <div class="tit-site"><a class="tit">Sorte</a> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
+    <div class="Header" id="Header"><div class="tit-site"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg"><a class="tit"> Sorte</a> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
     <div class="selec">
         <div id="selec">
             <div class="botoes">
-                <button class="botao" onclick="Palabra()">Palavra da Sorte &#2660</button>
+                <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
                 <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
             </div>
         </div>
@@ -133,15 +192,24 @@
             selec = document.getElementById('selec').style;
             volta = document.getElementById('voltar').style;
             btns = document.getElementById('btns').style;
-            btns.display = "block"
+            bxs = document.getElementById('boxes').style;
+            bxs.height = '100%';
+            bxs.width = '100%';
+            bxs.margin = '10%';
+            bxs.display = 'block';
+            btns.display = "block";
             selec.display = "none";
             volta.display = "block";
             let i = 0;
-            
-            
+
             while(i <= 8 && feito == 0){
                 let btn = document.createElement("button");
                 btn.innerHTML = 'a';
+                btn.id = i;
+                btn.className = 'btn'
+                btn.onclick = function btn() {
+
+                }
                 document.getElementById('btns').appendChild(btn);
                 i++;
                 
@@ -154,6 +222,7 @@
         }
         }
         function voltar(){
+            bxs.display = 'none';
             btns.display = "none";
             selec.display = "block";
             volta.display = "none";
