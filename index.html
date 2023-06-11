@@ -7,6 +7,10 @@
     <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg">
     <title>Sorte</title>
     <style>
+        html{
+            font-family: 'Roboto',sans-serif;
+            color: black;
+        }
         body{
             margin: 0px;
             padding: 0px;
@@ -71,7 +75,7 @@
 
         @media screen and (max-width: 832px){ 
             .botao{
-                margin: 10px 60px 20px;
+                margin: 10px 10px 20px 40px;
                 width: 322px;
                 height: 239px;
                 background-color: #EEEFE1;
@@ -127,7 +131,11 @@
             margin-right: 5%;
             height: 1em;
             width: 1em;
+            transition: 600ms;
             }
+        .icon:hover{
+            transform: rotate3d(0, 1, 0, 360deg);
+        }
 
         .botoes{
             margin-top: 10px;
@@ -136,18 +144,42 @@
         .btn{
             width: 33%;
             height: 110px;
-            font-size: large;
+            font-size: medium;
             border-radius: 10px;
             margin: 0.12vw;
             background-color: #EEEFE1;
             border: 0px;
+            z-index: 1;
+            
         }
         .btn:hover{
             background-color: #e3e4d6;
             color: rgb(87, 87, 87);
             border: 1px solid aqua;
         }
+        .btn:disabled{
+            background-color: #a9aca3;
+            border: 2px solid rgb(138, 142, 142);
+        }
 
+        @keyframes spin{
+            to {
+         
+                transform: rotate3d(1, 0, 0, 720deg);
+
+            }
+
+        }
+        @keyframes spinRev{
+            to{
+                transform: rotate3d(1, 0, 0, -89deg);
+            }
+        }
+        @keyframes nada {
+            to{
+
+            }
+        }
 
     
     </style>
@@ -157,14 +189,15 @@
     <div class="selec">
         <div id="selec">
             <div class="botoes">
-                <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
-                <button class="botao" onclick="Palabra()">Palavra da Sorte</button>
+                <button class="botao" onclick="Palabra()">Frase do Dia</button>
+                <button class="botao" onclick="">Palavra da Sorte</button>
             </div>
         </div>
         <div class="boxes" id="boxes">
             <div class="btns" id='btns'>
 
             </div>
+            
         </div>
     </div>
 
@@ -178,6 +211,7 @@
    
    
    <script>
+        var first = 0;
         var feito = 0
         window.onload = escAnun
         function escAnun(){
@@ -186,9 +220,35 @@
            var ad = Math.floor(Math.random() * 3);
            anuncio.src = imgs[ad];   
         }
+        
+        function botn(id){
+            let bt = document.getElementById(id);
+            for(let a = 0; a <= 8; a++){
+                let btd = document.getElementById(a);
+                btd.disabled = 'true';
+            }
+            bt.style.backgroundColor = '#EEEFE1';
+            bt.style.color = 'black';
+            setTimeout(function to(){bt.disabled = 'false';}, 600);
+            sujeito = ['Eu', 'Você', 'Sua Mãe', 'Sua Irmã', 'Um Macaco', 'Seu Pai', 'Sua Casa', 'Pedro'];
+            verbo = ['irá', 'fazerá', 'fez', 'pegará', 'pegou', 'estará', 'esteve', 'comeu', 'comerá', 'matou', 'matará', 'irá restaurar'];
+            complemento = ['fogo', 'um atentado', 'a União Soviética', 'com fome', 'o Zavala', 'o Steve do Minecraft', 'uma caixa de papelão'];
+            
+            bt.style.animation = '800ms spin';
+            suj = Math.floor(Math.random() * 8);
+            vrb = Math.floor(Math.random() * 12);
+            comp = Math.floor(Math.random() * 7);
+            setTimeout(function to(){bt.innerHTML = '...'}, 120);
+            setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + verbo[vrb] + ' ' + complemento[comp];}, 480);
+            setTimeout(function to(){bt.style.animation = 'nada, 1ms'}, 601);
+            
+            
 
-        function Palabra(){
+        }
+        function Palabra(first){
             try{
+            console.log(feito);
+            bt = document.getElementsByClassName('btn');
             selec = document.getElementById('selec').style;
             volta = document.getElementById('voltar').style;
             btns = document.getElementById('btns').style;
@@ -200,16 +260,22 @@
             btns.display = "block";
             selec.display = "none";
             volta.display = "block";
-            let i = 0;
+            var i = 0;
+            
 
             while(i <= 8 && feito == 0){
+                
                 let btn = document.createElement("button");
-                btn.innerHTML = 'a';
+                btn.innerHTML = '?';
                 btn.id = i;
+                btn.value = i;
+                
                 btn.className = 'btn'
-                btn.onclick = function btn() {
-
+                btn.onclick = function btn(){
+                    
+                    botn(this.id)
                 }
+
                 document.getElementById('btns').appendChild(btn);
                 i++;
                 
@@ -222,11 +288,12 @@
         }
         }
         function voltar(){
+            bt.innerHTML = '?'
             bxs.display = 'none';
             btns.display = "none";
             selec.display = "block";
             volta.display = "none";
-
+            
             
 
         }
