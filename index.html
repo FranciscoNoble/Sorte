@@ -75,7 +75,7 @@
 
         @media screen and (max-width: 832px){ 
             .botao{
-                margin: 10px 10px 20px 40px;
+                margin: 10px 20px;
                 width: 322px;
                 height: 239px;
                 background-color: #EEEFE1;
@@ -171,6 +171,7 @@
 
         }
         @keyframes spinRev{
+            /*Limpar Aqui!!!*/
             to{
                 transform: rotate3d(1, 0, 0, -89deg);
             }
@@ -235,7 +236,7 @@
             complemento = ['fogo', 'um atentado', 'a União Soviética', 'com fome', 'o Zavala', 'o Steve do Minecraft', 'uma caixa de papelão'];
             
             bt.style.animation = '800ms spin';
-            suj = Math.floor(Math.random() * 8);
+            suj = Math.floor(Math.random() * 9);
             vrb = Math.floor(Math.random() * 12);
             comp = Math.floor(Math.random() * 7);
             setTimeout(function to(){bt.innerHTML = '...'}, 120);
