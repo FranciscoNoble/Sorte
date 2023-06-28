@@ -10,11 +10,13 @@
         html{
             font-family: 'Roboto',sans-serif;
             color: black;
+            
         }
         body{
             margin: 0px;
             padding: 0px;
             font-size: 16px;
+            
         }
         .Header{
             display: flex;
@@ -59,6 +61,18 @@
             
         }
         .selec{
+            margin-top: 0px;
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+
+        }
+        .botc{
             margin-top: 10px;
             width: 100%;
             height: 40%;
@@ -70,12 +84,11 @@
 
         }
         #selec{
-            margin-top: 7%;
+            margin-top: 5%;
         }
-
         @media screen and (max-width: 832px){ 
             .botao{
-                margin: 10px 20px;
+                margin: 10px 10px 20px 40px;
                 width: 322px;
                 height: 239px;
                 background-color: #EEEFE1;
@@ -86,26 +99,89 @@
                 justify-content: center;
                 align-items: center;
             }
+            .botaoC{
+                margin: 10px 10px 20px 40px;
+                width: 100px;
+                height: 50px;
+                background-color: #EEEFE1;
+                border-radius: 20px;
+                border-width: 0px;
+                font-size: 27px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .botaoD{
+                width: 40px;
+                height:23px;
+                background-color:#EEEFE1;
+                border-radius: 4px;
+                border-width: 0px;
+                font-size: 15px;
+            }
             
         }
         @media screen and (min-width: 833px){
             .botao{
-            margin: 0.4em;
-            width: 35vw;
-            height: 25vw;
-            background-color:#EEEFE1;
-            border-radius: 20px;
-            border-width: 0px;
-            font-size: 3vw;
+                margin: 0.4em;
+                width: 35vw;
+                height: 25vw;
+                background-color:#EEEFE1;
+                border-radius: 20px;
+                border-width: 0px;
+                font-size: 3vw;
             }
-
+            .botaoC{
+                margin: 0.4em;
+                width: 40vw;
+                height: 2vw;
+                background-color:#EEEFE1;
+                border-radius: 20px;
+                border-width: 0px;
+                font-size: 1.5vw;
+            }
+            .botaoD{
+                width: 20% - 40px;
+                height:100%;
+                background-color:#EEEFE1;
+                border-radius: 4px;
+                border-width: 0px;
+                font-size: 1.25vw;
+            }
             
         }
         .botao:hover{
             background-color: #e3e4d6;
             color: rgb(87, 87, 87);
             border: 1px solid aqua;
+        }        
+        .botaoC:hover{
+            background-color: #e3e4d6;
+            color: rgb(87, 87, 87);
+            border: 1px solid aqua;
+        }      
+        .botaoD:hover{
+            background-color: #e3e4d6;
+            color: rgb(87, 87, 87);
+            border: 1px solid aqua;
+        } 
+        .botaoE{
+                margin-top: 1vw;
+                width: 24vw;
+                height: 20px;
+                background-color: #EEEFE1;
+                border-radius: 20px;
+                border-width: 0px;
+                font-size: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
         }
+        .botaoE:hover{
+            background-color: #e3e4d6;
+            color: rgb(87, 87, 87);
+            border: 1px solid aqua;
+        } 
         .voltar{
             display: none;            
             margin-right: 30px;
@@ -165,13 +241,12 @@
         @keyframes spin{
             to {
          
-                transform: rotate3d(1, 0, 0, 720deg);
+                transform: rotate3d(1, 0, 0, 1440deg);
 
             }
 
         }
         @keyframes spinRev{
-            /*Limpar Aqui!!!*/
             to{
                 transform: rotate3d(1, 0, 0, -89deg);
             }
@@ -180,49 +255,75 @@
             to{
 
             }
+            
         }
-
+        .cre{
+            display: none;
+        }
+        .crea{
+            margin-top: 5vw;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .break{
+            width: 100%;
+        }
+        .array{
+            border: 1px black;
+        }
+        .plbr{
+            display: none;
+        }
     
     </style>
 </head>
 <body style="background-color: white;">
-    <div class="Header" id="Header"><div class="tit-site"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg"><a class="tit"> Sorte</a> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
+    <div class="Header" id="Header"><div class="tit-site"><img onclick="voltar()" class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg"><p onclick="voltar()" class="tit">Sorte</p> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
     <div class="selec">
+        <h1 id="plbr"></h1>
         <div id="selec">
+            
             <div class="botoes">
                 <button class="botao" onclick="Palabra()">Frase do Dia</button>
-                <button class="botao" onclick="">Palavra da Sorte</button>
+                <button class="botao" onclick="Frase()">Palavra da Sorte</button><br>
+                <div class="botc">
+                    <button class="botaoC" onclick="crear()">Palabra Creador</button>
+                </div>
             </div>
         </div>
         <div class="boxes" id="boxes">
             <div class="btns" id='btns'>
 
-            </div>
-            
+            </div>    
         </div>
+        <div class="cre" id="cre"> 
+            <div class="crea" id="crea">
+                <div><h1>Adicionar Palavras</h1></div>
+                <div class="break"></div>
+                <input type="text" style="width: 30%; height: 100%;" id="text"><button class="botaoD" onclick="add()">add</button>
+                <div class="break"></div>
+                <button class="botaoE" onclick="show()">Mostrar Palavras</button>
+                <div class="break"></div>
+                <p id="array" ></p>
+            </div>
+
+        </div>       
     </div>
 
 
-     <div class="footer" >
-        <input type="image" class="anuncio" id="a" src="https://cdn01.x-plarium.com/browser/content/forum/common/header-arts/raid-header.jpg" onclick="anuncio()">
-        <br> 
-       anuncio dos nossos paterocinadores
-    </div>
+   
    
    
    
    <script>
+        var palavras = [];
         var first = 0;
-        var feito = 0
-        window.onload = escAnun
-        function escAnun(){
-           var anuncio = document.getElementById('a');
-           var imgs = ['https://cdn01.x-plarium.com/browser/content/forum/common/header-arts/raid-header.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRSRanSf5zRp3qsiN6GqeVPZjj83UuvNHCh-eW6LrI2uZx1AfJPBND7O2fBF4wxzhwfvw&usqp=CAU', 'https://imperium.news/wp-content/uploads/2017/04/Albion-Online.jpg']
-           var ad = Math.floor(Math.random() * 3);
-           anuncio.src = imgs[ad];   
-        }
-        
+        var feito = 0; 
         function botn(id){
+            
             let bt = document.getElementById(id);
             for(let a = 0; a <= 8; a++){
                 let btd = document.getElementById(a);
@@ -230,18 +331,20 @@
             }
             bt.style.backgroundColor = '#EEEFE1';
             bt.style.color = 'black';
+            
             setTimeout(function to(){bt.disabled = 'false';}, 600);
+            
             sujeito = ['Eu', 'Você', 'Sua Mãe', 'Sua Irmã', 'Um Macaco', 'Seu Pai', 'Sua Casa', 'Pedro'];
             verbo = ['irá', 'fazerá', 'fez', 'pegará', 'pegou', 'estará', 'esteve', 'comeu', 'comerá', 'matou', 'matará', 'irá restaurar'];
             complemento = ['fogo', 'um atentado', 'a União Soviética', 'com fome', 'o Zavala', 'o Steve do Minecraft', 'uma caixa de papelão'];
             
-            bt.style.animation = '800ms spin';
-            suj = Math.floor(Math.random() * 9);
+            bt.style.animation = '1600ms spin';
+            suj = Math.floor(Math.random() * 8);
             vrb = Math.floor(Math.random() * 12);
             comp = Math.floor(Math.random() * 7);
-            setTimeout(function to(){bt.innerHTML = '...'}, 120);
-            setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + verbo[vrb] + ' ' + complemento[comp];}, 480);
-            setTimeout(function to(){bt.style.animation = 'nada, 1ms'}, 601);
+            setTimeout(function to(){bt.innerHTML = '...'}, 240);
+            setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + verbo[vrb] + ' ' + complemento[comp];}, 1060);
+            setTimeout(function to(){bt.style.animation = 'nada, 1ms'}, 1301);
             
             
 
@@ -273,7 +376,8 @@
                 
                 btn.className = 'btn'
                 btn.onclick = function btn(){
-                    
+                    let audio = new Audio('shuffling-cards-3.mp3');
+                    audio.play();
                     botn(this.id)
                 }
 
@@ -289,7 +393,18 @@
         }
         }
         function voltar(){
-            bt.innerHTML = '?'
+            cre = document.getElementById('cre').style;
+            bt = document.getElementsByClassName('btn');
+            selec = document.getElementById('selec').style;
+            volta = document.getElementById('voltar').style;
+            btns = document.getElementById('btns').style;
+            bxs = document.getElementById('boxes').style;
+            bruno = document.getElementById('array');
+            h1 = document.getElementById('plbr');
+            h1.innerHTML = null;
+            bruno.innerHTML = null;
+            cre.display = 'none';
+            bt.innerHTML = '?';
             bxs.display = 'none';
             btns.display = "none";
             selec.display = "block";
@@ -298,6 +413,56 @@
             
 
         }
+        function crear(){
+            cre = document.getElementById('cre').style;
+            selec = document.getElementById('selec').style;
+            volta = document.getElementById('voltar').style;
+            selec.display = "none"; 
+            volta.display = "block"; 
+            cre.display = 'block'; 
+            
+        }
+        function add(){
+            text = document.getElementById('text');
+            a = palavras.length - 1;
+            b = 0;
+            for(let i = 0; i <= a; i++){
+                if(text.value == palavras[i]){
+                    window.alert('palavra repetida');
+                    b = 1;
+                }
+            }
+            if(b == 0){
+                palavras.push(text.value);
+                console.log(palavras);
+                
+            }
+            else{
+
+            }
+            text.value = null;
+        }
+        function show(){
+            bruno = document.getElementById('array');
+            bruno.innerHTML = palavras;
+            a = palavras.length - 1;
+            b = 0;
+            for(let i = 0; i <= a; i++){
+                bruno.innerHTML = palavras[i];
+
+            }
+            
+        }
+        function Frase(){
+            const num = Math.floor(Math.random()* palavras.length);
+            h1 = document.getElementById('plbr');
+            selec = document.getElementById('selec').style;
+            volta = document.getElementById('voltar').style;
+            selec.display = "none"; 
+            volta.display = "block"; 
+            h1.innerHTML = palavras[num];
+            console.log(num);
+            }
 
     </script>
 </body>
