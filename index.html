@@ -12,11 +12,33 @@
             color: black;
             
         }
+        .toggle{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            height: 60px;
+            width: 60px;
+            border-radius: 100%;
+            background-color: #292526;
+            transition: 500ms;
+            -webkit-backface-visibility: hidden;
+                  backface-visibility: hidden;
+            -webkit-transform: scale(0.92);
+                      transform: scale(0.92);
+        }
+        .dark-mode .toggle{
+            background-color: antiquewhite;
+        }
         body{
             margin: 0px;
             padding: 0px;
             font-size: 16px;
-            
+            transition: 500ms;
+        }
+        .dark-mode {
+            background-color: rgb(18, 18, 18);
+            color: white;
         }
         .Header{
             display: flex;
@@ -28,6 +50,7 @@
             flex-direction: row;
 
         }
+
         .tit-site
         {
             display: flex;
@@ -43,23 +66,7 @@
             color:#EEEFE1;
                    
         }
-        .anuncio{
-            
-            margin-top: 40%;
-            width: 90%;
-            height: 100px;
-            background-color: white;
-            border-radius: 20px;
-            size-adjust: 32;
-            object-fit: contain;
-            
-        }
-        .footer{
-            display: none;
-            margin-left: 10%;
-            block-size: 10cm;
-            
-        }
+
         .selec{
             margin-top: 0px;
             width: 100%;
@@ -99,6 +106,10 @@
                 justify-content: center;
                 align-items: center;
             }
+            .dark-mode .botao{
+                background-color: rgb(39, 40, 30);
+                color: white;
+            }
             .botaoC{
                 margin: 10px 10px 20px 40px;
                 width: 100px;
@@ -111,6 +122,10 @@
                 justify-content: center;
                 align-items: center;
             }
+            .dark-mode .botaoC{
+                background-color: rgb(39, 40, 30);
+                color: white;
+            }
             .botaoD{
                 width: 40px;
                 height:23px;
@@ -118,6 +133,10 @@
                 border-radius: 4px;
                 border-width: 0px;
                 font-size: 15px;
+            }
+            .dark-mode .botaoD{
+                background-color: rgb(39, 40, 30);
+                color: white;
             }
             
         }
@@ -131,6 +150,10 @@
                 border-width: 0px;
                 font-size: 3vw;
             }
+            .dark-mode .botao{
+                background-color: rgb(39, 40, 30);
+                color: white;
+            }
             .botaoC{
                 margin: 0.4em;
                 width: 40vw;
@@ -140,6 +163,10 @@
                 border-width: 0px;
                 font-size: 1.5vw;
             }
+            .dark-mode .botaoC{
+                background-color: rgb(39, 40, 30);
+                color: white;
+            }
             .botaoD{
                 width: 20% - 40px;
                 height:100%;
@@ -148,7 +175,10 @@
                 border-width: 0px;
                 font-size: 1.25vw;
             }
-            
+            .dark-mode .botaoD{
+                background-color: rgb(39, 40, 30);
+                color: white;
+            }
         }
         .botao:hover{
             background-color: #e3e4d6;
@@ -164,7 +194,27 @@
             background-color: #e3e4d6;
             color: rgb(87, 87, 87);
             border: 1px solid aqua;
-        } 
+        }
+        .dark-mode .botao:hover{
+            background-color: rgb(48, 49, 38);
+            color: rgb(179, 179, 179);
+            border: 1px solid rgb(0, 87, 87);
+        }
+        .dark-mode .botaoC:hover{
+            background-color: rgb(48, 49, 38);
+            color: rgb(179, 179, 179);
+            border: 1px solid rgb(0, 87, 87);
+        }
+        .dark-mode .botaoD:hover{
+            background-color: rgb(48, 49, 38);
+            color: rgb(179, 179, 179);
+            border: 1px solid rgb(0, 87, 87);
+        }
+        .dark-mode .botaoE:hover{
+            background-color: rgb(48, 49, 38);
+            color: rgb(179, 179, 179);
+            border: 1px solid rgb(0, 87, 87);
+        }  
         .botaoE{
                 margin-top: 1vw;
                 width: 24vw;
@@ -176,6 +226,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+        }
+        .dark-mode .botaoE{
+            background-color: rgb(39, 40, 30);
+            color: white;
         }
         .botaoE:hover{
             background-color: #e3e4d6;
@@ -211,12 +265,19 @@
             }
         .icon:hover{
             transform: rotate3d(0, 1, 0, 360deg);
+        }        
+        .text{
+            height: 100%;
         }
-
+        .dark-mode .text{
+            background-color: rgb(59, 59, 59);
+            border-width: 1px;
+            border-color: white;
+            color: white;
+        }
         .botoes{
             margin-top: 10px;
         }
-
         .btn{
             width: 33%;
             height: 110px;
@@ -237,7 +298,10 @@
             background-color: #a9aca3;
             border: 2px solid rgb(138, 142, 142);
         }
-
+        .dark-mode .btn{
+            background-color: rgb(39, 40, 30);
+            color: white;
+        }
         @keyframes spin{
             to {
          
@@ -277,15 +341,14 @@
         .plbr{
             display: none;
         }
-    
     </style>
 </head>
-<body style="background-color: white;">
-    <div class="Header" id="Header"><div class="tit-site"><img onclick="voltar()" class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg"><p onclick="voltar()" class="tit">Sorte</p> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
+<body>
+    <div class="Header" id="Header"><div class="tit-site"><img onclick="voltar()" class="icon" src="./assets/Clover.svg"><p onclick="voltar()" class="tit">Sorte</p> </div> <div class="btnV"><button class="voltar" id="voltar" onclick="voltar()">Voltar</button></div> </div>
+    <div class="toggle" onclick="dark()"></div>
     <div class="selec">
         <h1 id="plbr"></h1>
-        <div id="selec">
-            
+        <div id="selec"> 
             <div class="botoes">
                 <button class="botao" onclick="Palabra()">Frase do Dia</button>
                 <button class="botao" onclick="Frase()">Palavra da Sorte</button><br>
@@ -303,7 +366,7 @@
             <div class="crea" id="crea">
                 <div><h1>Adicionar Palavras</h1></div>
                 <div class="break"></div>
-                <input type="text" style="width: 30%; height: 100%;" id="text"><button class="botaoD" onclick="add()">add</button>
+                <input type="text" class='text' id="text"><button class="botaoD" onclick="add()">add</button>
                 <div class="break"></div>
                 <button class="botaoE" onclick="show()">Mostrar Palavras</button>
                 <div class="break"></div>
@@ -321,7 +384,8 @@
    <script>
         var palavras = [];
         var first = 0;
-        var feito = 0; 
+        var feito = 0;
+        var drk = 0;
         function botn(id){
             
             let bt = document.getElementById(id);
@@ -329,9 +393,14 @@
                 let btd = document.getElementById(a);
                 btd.disabled = 'true';
             }
+            if(drk == 0){
             bt.style.backgroundColor = '#EEEFE1';
             bt.style.color = 'black';
-            
+            }
+            else{
+                bt.style.backgroundColor = 'rgb(39, 40, 30)';
+                bt.style.color = 'white';
+            }
             setTimeout(function to(){bt.disabled = 'false';}, 600);
             
             sujeito = ['Eu', 'Você', 'Sua Mãe', 'Sua Irmã', 'Um Macaco', 'Seu Pai', 'Sua Casa', 'Pedro'];
@@ -376,7 +445,7 @@
                 
                 btn.className = 'btn'
                 btn.onclick = function btn(){
-                    let audio = new Audio('shuffling-cards-3.mp3');
+                    let audio = new Audio('./assets/cards.mp3');
                     audio.play();
                     botn(this.id)
                 }
@@ -463,7 +532,17 @@
             h1.innerHTML = palavras[num];
             console.log(num);
             }
-
+        function dark() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            if(drk == 0){
+                drk = 1;
+            }
+            else{
+                drk = 0;
+            }
+        }
     </script>
+
 </body>
 </html>
