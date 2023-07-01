@@ -34,7 +34,7 @@
             margin: 0px;
             padding: 0px;
             font-size: 16px;
-            transition: 500ms;
+            transition: ease-in-out 600ms;
         }
         .dark-mode {
             background-color: rgb(18, 18, 18);
@@ -254,6 +254,11 @@
             border: 1px solid;
             color: crimson;
         }
+        .dark-mode .voltar{
+            background-color: rgb(107, 107, 107);
+            
+        }
+
         .btns{
             display: none;
         }
@@ -271,8 +276,7 @@
         }
         .dark-mode .text{
             background-color: rgb(59, 59, 59);
-            border-width: 1px;
-            border-color: white;
+            border: 1px solid rgb(112, 112, 112);
             color: white;
         }
         .botoes{
@@ -350,7 +354,7 @@
         <h1 id="plbr"></h1>
         <div id="selec"> 
             <div class="botoes">
-                <button class="botao" onclick="Palabra()">Frase do Dia</button>
+                <button class="botao" id='botao' onclick="Palabra()">Frase do Dia</button>
                 <button class="botao" onclick="Frase()">Palavra da Sorte</button><br>
                 <div class="botc">
                     <button class="botaoC" onclick="crear()">Palabra Creador</button>
@@ -514,11 +518,17 @@
         function show(){
             bruno = document.getElementById('array');
             bruno.innerHTML = palavras;
+            dudu = ""
             a = palavras.length - 1;
             b = 0;
             for(let i = 0; i <= a; i++){
-                bruno.innerHTML = palavras[i];
-
+                if(i < a){
+                    bruno.innerHTML = dudu + " " + palavras[i] + ','; 
+                }
+                else{
+                    bruno.innerHTML = dudu + " " + palavras[i]; 
+                }
+                dudu = bruno.innerHTML
             }
             
         }
@@ -534,12 +544,15 @@
             }
         function dark() {
             var element = document.body;
+            var btn = document.getElementById('botao');
             element.classList.toggle("dark-mode");
             if(drk == 0){
                 drk = 1;
+                btn.innerHTML = 'Frase da Noite'
             }
             else{
                 drk = 0;
+                btn.innerHTML = 'Frase do Dia'
             }
         }
     </script>
