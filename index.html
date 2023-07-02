@@ -408,7 +408,8 @@
             setTimeout(function to(){bt.disabled = 'false';}, 600);
             
             sujeito = ['Eu', 'Você', 'Sua Mãe', 'Sua Irmã', 'Um Macaco', 'Seu Pai', 'Sua Casa', 'Pedro', 'O Lorax'];
-            verbos1p = ['irei', 'farei', 'fiz', 'pegarei', 'peguei', 'estarei', 'estive', 'comi', 'comerei', 'matei','irei matar','irei restaurar', 'cantarei para', 'falarei com'];
+            adverbio =['', 'sem querer', 'por querer', 'lentamente','hoje','', 'possivelmente', 'não', 'sem dificuldades']
+            verbos1p = ['irei', 'farei', 'fiz', 'pegarei', 'peguei', 'estarei', 'estive', 'comi', 'comerei', 'matei','irei matar','irei restaurar', 'cantarei para', 'falarei com', 'fiz'];
             verbo = ['irá', 'fará', 'fez', 'pegará', 'pegou', 'estará', 'esteve', 'comeu', 'comerá', 'matou', 'matará', 'irá restaurar', 'cantará para', 'falará com'];
             complemento = ['fogo', 'um atentado', 'a União Soviética', 'com fome', 'o Zavala', 'o Steve do Minecraft', 'uma caixa de papelão', 'uma árvore inteira'];
             
@@ -416,10 +417,11 @@
             suj = Math.floor(Math.random() * sujeito.length);
             vrb = Math.floor(Math.random() * verbo.length);
             comp = Math.floor(Math.random() * complemento.length);
+            adv = Math.floor(Math.random() * adverbio.length);
             sujeit = sujeito[suj];
-            setTimeout(function to(){bt.innerHTML = '...'}, 240);
-            if(sujeit == 'Eu'){setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + verbos1p[vrb] + ' ' + complemento[comp];}, 1060);}
-            else{setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + verbo[vrb] + ' ' + complemento[comp];}, 1060);}
+            setTimeout(function to(){bt.innerHTML = '···'}, 240);
+            if(sujeit == 'Eu'){setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + adverbio[adv] + ' ' + verbos1p[vrb] + ' ' + complemento[comp];}, 1060);}
+            else{setTimeout(function to(){bt.innerHTML = sujeito[suj] + ' ' + adverbio[adv] + ' ' + verbo[vrb] + ' ' + complemento[comp];}, 1060);}
             setTimeout(function to(){bt.style.animation = 'nada, 1ms'}, 1301);
             
             
