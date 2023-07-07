@@ -290,9 +290,12 @@
             margin: 0.12vw;
             background-color: #EEEFE1;
             border: 0px;
-            z-index: 1;
+            position:static;
+            padding: 5px;
+
             
         }
+        
         .btn:hover{
             background-color: #e3e4d6;
             color: rgb(87, 87, 87);
@@ -390,6 +393,15 @@
         var first = 0;
         var feito = 0;
         var drk = 0;
+        var mode = document.cookie
+        window.onload = load
+        function load(){
+            
+            if(mode == 'dark'){
+                dark();
+            }
+            console.log(mode)
+        }
         function botn(id){
             
             let bt = document.getElementById(id);
@@ -409,8 +421,8 @@
             
             sujeito = ['Eu', 'Você', 'Sua Mãe', 'Sua Irmã', 'Um Macaco', 'Seu Pai', 'Sua Casa', 'Pedro', 'O Lorax'];
             adverbio =['', 'sem querer', 'por querer', 'lentamente','hoje','', 'possivelmente', 'não', 'sem dificuldades']
-            verbos1p = ['irei', 'farei', 'fiz', 'pegarei', 'peguei', 'estarei', 'estive', 'comi', 'comerei', 'matei','irei matar','irei restaurar', 'cantarei para', 'falarei com', 'fiz'];
-            verbo = ['irá', 'fará', 'fez', 'pegará', 'pegou', 'estará', 'esteve', 'comeu', 'comerá', 'matou', 'matará', 'irá restaurar', 'cantará para', 'falará com'];
+            verbos1p = ['farei', 'fiz', 'pegarei', 'peguei', 'estarei', 'estive', 'comi', 'comerei', 'matei','irei matar','irei restaurar', 'cantarei para', 'falarei com', 'fiz'];
+            verbo = ['fará', 'fez', 'pegará', 'pegou', 'estará', 'esteve', 'comeu', 'comerá', 'matou', 'matará', 'irá restaurar', 'cantará para', 'falará com'];
             complemento = ['fogo', 'um atentado', 'a União Soviética', 'com fome', 'o Zavala', 'o Steve do Minecraft', 'uma caixa de papelão', 'uma árvore inteira'];
             
             bt.style.animation = '1600ms spin';
@@ -565,11 +577,15 @@
             element.classList.toggle("dark-mode");
             if(drk == 0){
                 drk = 1;
-                btn.innerHTML = 'Frase da Noite'
+                btn.innerHTML = 'Frase da Noite';
+                mode = 'mode=dark';
+                console.log(mode);
             }
             else{
                 drk = 0;
-                btn.innerHTML = 'Frase do Dia'
+                btn.innerHTML = 'Frase do Dia';
+                mode = 'mode=light';
+                console.log(mode);
             }
         }
     </script>
