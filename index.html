@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/8/8d/Clover_symbol.svg">
+    <link rel="icon" type="image/x-icon" href="./assets/Clover.svg">
     <title>Sorte</title>
     <style>
         html{
@@ -393,11 +393,10 @@
         var first = 0;
         var feito = 0;
         var drk = 0;
-        var mode = document.cookie
         window.onload = load
         function load(){
             
-            if(mode == 'dark'){
+            if(localStorage.getItem("mode") == 'dark'){
                 dark();
             }
             console.log(mode)
@@ -578,14 +577,14 @@
             if(drk == 0){
                 drk = 1;
                 btn.innerHTML = 'Frase da Noite';
-                mode = 'mode=dark';
-                console.log(mode);
+                localStorage.setItem("mode", "dark");
+                
             }
             else{
                 drk = 0;
                 btn.innerHTML = 'Frase do Dia';
-                mode = 'mode=light';
-                console.log(mode);
+                localStorage.setItem("mode", "light");
+                
             }
         }
     </script>
